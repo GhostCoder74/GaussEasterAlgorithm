@@ -1,0 +1,68 @@
+#!/usr/bin/env python3
+# SPDX-License-Identifier: GPL-3.0-or-later
+
+import sys
+from holidays import get_holiday
+from calendar_data import build_calendar
+
+def usage():
+    print("""
+geaCalCli - Calendar / Holiday Tool
+Usage:
+  geaCalCli holiday YYYY-MM-DD
+  geaCalCli range START_YEAR END_YEAR
+  geaCalCli help
+
+Examples:
+  geaCalCli holiday 2025-04-18
+  geaCalCli range 2025 2026
+""")
+    sys.exit(1)
+
+
+def main():
+    if len(sys.argv) < 2:
+        usage()
+
+    cmd = sys.argv[1]
+
+    if cmd == "help":
+        usage()
+
+    if cmd == "holiday":
+        if len(sys.argv) != 3:
+            usage()
+
+        date = sys.argv[2]
+        try:
+            year, month, day = map(int, date.split("-"))
+        except:
+            print("Invalid date format, expected YYYY-MM-DD")
+            sys.exit(1)
+
+        name = get_holiday(year, month, day)
+        print(name if name else "No holiday")
+        sys.exit(0)
+
+    if cmd == "range":
+        if len(sys.argv) != 4:
+            usage()
+        try:
+            start = int(sys.argv[2])
+            end = int(sys.argv[3])
+        except:
+            print("Invalid years")
+            sys.exit(1)
+
+        cal = build_calendar(start, end)
+        for entry in cal[:50]:  # avoid huge output
+            print(entry)
+        print(f"Generated {len(cal)} days in total.")
+        sys.exit(0)
+
+    usage()
+
+
+if __name__ == "__main__":
+    main()
+
