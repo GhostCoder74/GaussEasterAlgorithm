@@ -18,6 +18,7 @@ MODULE_DIR   := modules
 LANG_DIR     := $(MODULE_DIR)/lang
 BIN_DIR      := $(PREFIX)usr/local/bin
 
+LOGO_DIR     := usr/share/geaCal
 INSTALL_BIN  := install -m 0755
 INSTALL_FILE := install -m 0644
 PYTEST       := pytest -q
@@ -38,6 +39,7 @@ install:
 	@mkdir -p "$(OPT_DIR)/modules"
 	@mkdir -p "$(OPT_DIR)/modules/lang"
 	@mkdir -p "$(BIN_DIR)"
+	@mkdir -p "$(PREFIX)$(LOGO_DIR)"
 
 	# copy modules
 	@cp -r $(MODULE_DIR)/*.py "$(OPT_DIR)/modules/" || true
@@ -49,6 +51,9 @@ install:
 	$(INSTALL_FILE) README.md "$(OPT_DIR)/"
 	$(INSTALL_FILE) LICENSE "$(OPT_DIR)/"
 
+	# copy logo
+	$(INSTALL_FILE) "$(LOGO_DIR)" "$(PREFIX)$(LOGO_DIR)/"
+
 	# install CLI(s)
 	$(INSTALL_BIN) usr/local/bin/geaCal "$(BIN_DIR)/geaCal"
 
@@ -59,6 +64,7 @@ uninstall:
 	@echo "🗑 Removing geaCal..."
 	@rm -rf "$(OPT_DIR)"
 	@rm -f  "$(BIN_DIR)/geaCal"
+	@rm -f  "$(PREFIX)$(LOGO_DIR)/"
 	@echo "✔ Uninstalled."
 
 # ------------------------------------------------------------
@@ -76,10 +82,14 @@ show:
 	@echo "│           ├── translator.py"
 	@echo "│           ├── create_language.py"
 	@echo "│           └── lang/*.json"
+	@echo "├── usr"
+	@echo "│   └── local"
+	@echo "│       └── bin"
+	@echo "│           └── geaCal"
 	@echo "└── usr"
-	@echo "    └── local"
-	@echo "        └── bin"
-	@echo "            └── geaCal"
+	@echo "    └── share"
+	@echo "        └── geaCal"
+	@echo "            └── geaCal-Loagp.jpeg"
 
 # ------------------------------------------------------------
 tree:
@@ -98,8 +108,14 @@ tree:
 	@echo "│           └── lang"
 	@echo "│               ├── en.json"
 	@echo "│               └── de.json"
-	@echo "└── usr/local/bin"
-	@echo "    └── geaCal"
+	@echo "├── usr"
+	@echo "│   └── local"
+	@echo "│       └── bin"
+	@echo "│           └── geaCal"
+	@echo "└── usr"
+	@echo "    └── share"
+	@echo "        └── geaCal"
+	@echo "            └── geaCal-Loagp.jpeg"
 
 # ------------------------------------------------------------
 test:
@@ -125,6 +141,7 @@ package: clean
 	@rm -rf $(DEB_DIR)
 	@mkdir -p $(DEB_BUILD)/opt/geaCal/modules
 	@mkdir -p $(DEB_BUILD)/usr/local/bin
+	@mkdir -p $(DEB_BUILD)/usr/share/geaCal
 
 	# copy files to package tree
 	@cp -r $(MODULE_DIR)/*.py $(DEB_BUILD)/opt/geaCal/modules/
@@ -132,6 +149,7 @@ package: clean
 	@cp README.md $(DEB_BUILD)/opt/geaCal/
 	@cp LICENSE $(DEB_BUILD)/opt/geaCal/
 	@cp usr/local/bin/geaCal $(DEB_BUILD)/usr/local/bin/geaCal
+	@cp usr/share/geaCal/*.jpeg $(DEB_BUILD)/usr/share/geaCal/
 
 	# create DEBIAN control
 	@mkdir -p $(DEB_BUILD)/DEBIAN

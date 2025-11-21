@@ -1,5 +1,9 @@
 # geaCal – Gaussian Easter Algorithm Calendar Tool
 
+<p align="center">
+  <img src="usr/share/geaCal/geaCal-Logo.jpeg" alt="geaCal logo" width="280">
+</p>
+
 geaCal is a small, modular Python tool for calculating
 Easter and all dependent holidays.  
 The calculation is performed using the classic **Gaussian Easter formula**
@@ -22,9 +26,12 @@ The calculation is performed using the classic **Gaussian Easter formula**
 │       ├── translator.py
 │       └── utils.py
 /usr/
- └── local/
-     └── bin/
-         └── geaCal → CLI for the shell
+├── local/
+│   └── bin/
+│       └── geaCal → CLI for the shell
+└── share/
+    └── geaCal/
+        └── geaCal-Logo.jpeg
 LICENSE
 README.md
 ```
