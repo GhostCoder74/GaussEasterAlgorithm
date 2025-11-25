@@ -19,6 +19,8 @@ LANG_DIR     := $(MODULE_DIR)/lang
 BIN_DIR      := $(PREFIX)usr/local/bin
 
 LOGO_DIR     := usr/share/geaCal
+LOGO_FILE    := geaCal-Logo.jpeg
+
 INSTALL_BIN  := install -m 0755
 INSTALL_FILE := install -m 0644
 PYTEST       := pytest -q
@@ -52,7 +54,7 @@ install:
 	$(INSTALL_FILE) LICENSE "$(OPT_DIR)/"
 
 	# copy logo
-	$(INSTALL_FILE) "$(LOGO_DIR)" "$(PREFIX)$(LOGO_DIR)/"
+	$(INSTALL_FILE) "$(LOGO_DIR)$(LOGO_FILE)" "$(PREFIX)$(LOGO_DIR)$(LOGO_FILE)"
 
 	# install CLI(s)
 	$(INSTALL_BIN) usr/local/bin/geaCal "$(BIN_DIR)/geaCal"
