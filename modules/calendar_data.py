@@ -12,7 +12,6 @@
 # Header added by https://github.com/GhostCoder74/Set-Project-Headers
 # -----------------------------------------------------------------------------
 
-
 from datetime import datetime
 from utils import days_in_month
 from holidays import get_holiday

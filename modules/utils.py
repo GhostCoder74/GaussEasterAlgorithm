@@ -12,7 +12,6 @@
 # Header added by https://github.com/GhostCoder74/Set-Project-Headers
 # -----------------------------------------------------------------------------
 
-
 from datetime import datetime, timedelta
 
 def left(s: str, amount: int) -> str:

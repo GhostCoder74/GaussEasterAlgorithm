@@ -12,7 +12,6 @@
 # Header added by https://github.com/GhostCoder74/Set-Project-Headers
 # -----------------------------------------------------------------------------
 
-
 from translator import t
 from datetime import datetime
 from easter import (

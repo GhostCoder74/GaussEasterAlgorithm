@@ -12,7 +12,6 @@
 # Header added by https://github.com/GhostCoder74/Set-Project-Headers
 # -----------------------------------------------------------------------------
 
-
 import json
 import os
 import locale
