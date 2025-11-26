@@ -64,7 +64,7 @@ install:
 	$(INSTALL_FILE) LICENSE "$(OPT_DIR)/"
 
 	# copy logo
-	$(INSTALL_FILE) "$(LOGO_DIR)$(LOGO_FILE)" "$(PREFIX)$(LOGO_DIR)$(LOGO_FILE)"
+	$(INSTALL_FILE) "$(LOGO_DIR)/$(LOGO_FILE)" "$(PREFIX)$(LOGO_DIR)/$(LOGO_FILE)"
 
 	# install CLI(s)
 	$(INSTALL_BIN) usr/local/bin/geaCal "$(BIN_DIR)/geaCal"
@@ -231,7 +231,7 @@ install:
 	$(INSTALL_FILE) LICENSE "$(OPT_DIR)/"
 
 	# copy logo
-	$(INSTALL_FILE) "$(LOGO_DIR)$(LOGO_FILE)" "$(PREFIX)$(LOGO_DIR)$(LOGO_FILE)"
+	$(INSTALL_FILE) "$(LOGO_DIR)/$(LOGO_FILE)" "$(PREFIX)$(LOGO_DIR)/$(LOGO_FILE)"
 
 	# install CLI(s)
 	$(INSTALL_BIN) usr/local/bin/geaCal "$(BIN_DIR)/geaCal"
