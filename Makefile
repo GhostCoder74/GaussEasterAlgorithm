@@ -20,10 +20,6 @@
 #   /opt/geaCal/README.md
 #   /opt/geaCal/LICENSE
 #   /usr/local/bin/geaCal
-#   /usr/local/bin/create_language
-#
-# Autor: Ghostcoder
-# SPDX-License-Identifier: GPL-3.0-or-later
 # ============================================================
 
 PREFIX       := /
