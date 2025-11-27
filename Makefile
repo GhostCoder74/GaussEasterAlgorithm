@@ -48,16 +48,16 @@ all:
 # ------------------------------------------------------------
 install:
 	@echo "📦 Installing geaCal..."
-	@mkdir -p "$(OPT_DIR)/modules"
-	@mkdir -p "$(OPT_DIR)/modules/lang"
-	@mkdir -p "$(BIN_DIR)"
-	@mkdir -p "$(PREFIX)$(LOGO_DIR)"
+	@mkdir -vp "$(OPT_DIR)/modules"
+	@mkdir -vp "$(OPT_DIR)/modules/lang"
+	@mkdir -vp "$(BIN_DIR)"
+	@mkdir -vp "$(PREFIX)$(LOGO_DIR)"
 
 	# copy modules
-	@cp -r $(MODULE_DIR)/*.py "$(OPT_DIR)/modules/" || true
+	@cp -vr $(MODULE_DIR)/*.py "$(OPT_DIR)/modules/" || true
 
 	# copy lang dir
-	@cp -r $(LANG_DIR)/* "$(OPT_DIR)/modules/lang/" || true
+	@cp -vr $(LANG_DIR)/* "$(OPT_DIR)/modules/lang/" || true
 
 	# copy README and LICENSE
 	$(INSTALL_FILE) README.md "$(OPT_DIR)/"
@@ -65,9 +65,7 @@ install:
 
 	# copy logo
 	$(INSTALL_FILE) "$(LOGO_DIR)/$(LOGO_FILE)" "$(PREFIX)$(LOGO_DIR)/$(LOGO_FILE)"
-=======
-	$(INSTALL_FILE) "$(LOGO_DIR)" "$(PREFIX)$(LOGO_DIR)/"
->>>>>>> parent of 8810f06 (Updating Makefile)
+	$(INSTALL_FILE) "$(LOGO_DIR)/$(LOGO_FILE)" "$(PREFIX)$(LOGO_DIR)/"
 
 	# install CLI(s)
 	$(INSTALL_BIN) usr/local/bin/geaCal "$(BIN_DIR)/geaCal"
@@ -77,9 +75,9 @@ install:
 # ------------------------------------------------------------
 uninstall:
 	@echo "🗑 Removing geaCal..."
-	@rm -rf "$(OPT_DIR)"
-	@rm -f  "$(BIN_DIR)/geaCal"
-	@rm -f  "$(PREFIX)$(LOGO_DIR)/"
+	@rm -vrf "$(OPT_DIR)"
+	@rm -vf  "$(BIN_DIR)/geaCal"
+	@rm -vrf  "$(PREFIX)$(LOGO_DIR)/"
 	@echo "✔ Uninstalled."
 
 # ------------------------------------------------------------
