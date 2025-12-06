@@ -14,21 +14,24 @@ The calculation is performed using the classic **Gaussian Easter formula**
 /opt/
 ├── geaCal/
 │  	└── modules/
-│       ├── calendar_data.py
-│       ├── create_language.py
-│       ├── easter.py
-│       ├── holidays.py
-│       ├── lang
-│       │   ├── en.json   # Default lang english
-│       │   ├── de.json   # Template can be generated with: geaCal --create-lang de
-│       │   └── es.json   # Template can be generated with: geaCal --create-lang es
-│       │                 # and then translated into the correct language
-│       ├── translator.py
-│       └── utils.py
+│       ├── geaCal_calendar_data_mod.py"
+│       ├── geaCal_create_language_mod.py"
+│       ├── geaCal_easter_mod.py"
+│       ├── geaCal_holidays_mod.py"
+│       ├── geaCal_odbc_server_mod.py"
+│       ├── geaCal_utils_mod.py"
+│       ├── geaCal_translator_mod.py"
+│       ├── geaCal_web_provider_mod.py"
+│       └── lang
+│           ├── en.json   # Default lang english
+│           ├── de.json   # Template can be generated with: geaCal --create-lang de
+│           └── es.json   # Template can be generated with: geaCal --create-lang es
+│                         # and then translated into the correct language
 /usr/
 ├── local/
 │   └── bin/
-│       └── geaCal → CLI for the shell
+│       ├── geaCal              → CLI for the shell
+│       └── geaCal-sql2csv-cli  → CLI for "geaCal -Q" ODBC Service
 └── share/
     └── geaCal/
         └── geaCal-Logo.jpeg
